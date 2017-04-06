@@ -11,7 +11,7 @@ from StringIO import StringIO
 from mechanize import Browser
 from optparse import OptionParser
 
-LEAMSITE = "http://datacenter.leamgroup.com/index"
+LEAMSITE = "http://portal.leam.illinois.edu/stockholm"
 
 
 def url_join(*args):
@@ -71,7 +71,7 @@ class LEAMsite:
             self.b.open('/'.join((site,"login_form")))
             self.b.select_form(nr=1)
 
-        if not user or not password:
+        if not user or not passwd:
             raise ValueError('user and password are required')
 
         self.b['__ac_name'] = user

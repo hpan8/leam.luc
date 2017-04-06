@@ -53,6 +53,19 @@ ProbmapSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
         multiValued=False,
     ),
 
+    atapi.IntegerField(
+        'trans_w',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.IntegerWidget(
+            label=_(u"Transportation Weight"),
+            description=_(u"Weight for transportation. From 0.5 to 5"),
+        ),
+        required=True,
+        default=_(u"1"),
+        validators=('isInt'),
+    ),
+
+
 
     atapi.ReferenceField(
         'roads',
@@ -243,6 +256,8 @@ class Probmap(base.ATCTContent):
 
     tdm = atapi.ATReferenceFieldProperty('tdm')
 
+    trans_w = atapi.ATReferenceFieldProperty('trans_w')
+
     drivers = atapi.ATReferenceFieldProperty('drivers')
 
     nogrowth = atapi.ATReferenceFieldProperty('nogrowth')
@@ -273,6 +288,7 @@ class Probmap(base.ATCTContent):
         SubElement(tree, 'id').text = self.id
         SubElement(tree, 'title').text = self.title
         SubElement(tree, 'year').text = str(self.year)
+        SubElement(tree, 'trans_w').text = str(self.trans_w)
         SubElement(tree, 'url').text = self.absolute_url()
         SubElement(tree, 'download').text = self.absolute_url() + \
             '/at_download/probfile'

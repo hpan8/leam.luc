@@ -49,6 +49,13 @@ class IProbmap(Interface):
         description=_(u"Select a transportation network that has been generated from a travel demand model."),
         schema=Interface, # specify the interface(s) of the addable types here
     )
+
+    trans_w = schema.Int(
+        title=_(u"Transportation Weight"),
+        required=False,
+        description=_(u"Weight of Transportation"),
+    )
+
 #
     nogrowth = schema.Object(
         title=_(u"No Growth Maps"),
