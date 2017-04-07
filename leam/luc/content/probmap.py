@@ -150,6 +150,18 @@ ProbmapSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
         allowed_types=('SimMap'),
         multiValued=True,
     ),
+    
+    atapi.IntegerField(
+        'popcenters_w',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.IntegerWidget(
+            label=_(u"Population Weight"),
+            description=_(u"Weight for population centers. From 0.5 to 5"),
+        ),
+        required=True,
+        default=_(u"1"),
+        validators=('isInt'),
+    ),
 
 
     atapi.ReferenceField(
@@ -164,6 +176,18 @@ ProbmapSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
         relationship='probmap_empcenters',
         allowed_types=('SimMap'),
         multiValued=True,
+    ),
+    
+    atapi.IntegerField(
+        'empcenters_w',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.IntegerWidget(
+            label=_(u"Employment Weight"),
+            description=_(u"Weight for employment centers. From 0.5 to 5"),
+        ),
+        required=True,
+        default=_(u"1"),
+        validators=('isInt'),
     ),
 
 
@@ -257,6 +281,10 @@ class Probmap(base.ATCTContent):
     tdm = atapi.ATReferenceFieldProperty('tdm')
 
     trans_w = atapi.ATReferenceFieldProperty('trans_w')
+    
+    popcenters_w = atapi.ATReferenceFieldProperty('popcenters_w')
+
+    empcenters_w = atapi.ATReferenceFieldProperty('empcenters_w')
 
     drivers = atapi.ATReferenceFieldProperty('drivers')
 
@@ -289,6 +317,8 @@ class Probmap(base.ATCTContent):
         SubElement(tree, 'title').text = self.title
         SubElement(tree, 'year').text = str(self.year)
         SubElement(tree, 'trans_w').text = str(self.trans_w)
+        SubElement(tree, 'popcenters_w').text = str(self.popcenters_w)
+        SubElement(tree, 'empcenters_w').text = str(self.empcenters_w)
         SubElement(tree, 'url').text = self.absolute_url()
         SubElement(tree, 'download').text = self.absolute_url() + \
             '/at_download/probfile'
