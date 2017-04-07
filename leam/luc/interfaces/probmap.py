@@ -70,12 +70,24 @@ class IProbmap(Interface):
         description=_(u"Select a GIS layer containing employeers and employmment centers."),
         schema=Interface, # specify the interface(s) of the addable types here
     )
+    
+    empcenters_w = schema.Int(
+        title=_(u"Employment Weight"),
+        required=False,
+        description=_(u"Weight of Employment Centers"),
+    )
 #
     popcenters = schema.Object(
         title=_(u"City and Population Centers"),
         required=True,
         description=_(u"Select the GIS layer with city centers."),
         schema=Interface, # specify the interface(s) of the addable types here
+    )
+    
+    popcenters_w = schema.Int(
+        title=_(u"Population Weight"),
+        required=False,
+        description=_(u"Weight of Population Centers"),
     )
 #
     dem = schema.Object(
