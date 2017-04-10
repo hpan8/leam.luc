@@ -162,8 +162,7 @@ ProbmapSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
         default=_(u"1"),
         validators=('isInt'),
     ),
-
-
+    
     atapi.ReferenceField(
         'empcenters',
         storage=atapi.AnnotationStorage(),
@@ -204,8 +203,7 @@ ProbmapSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
         allowed_types=('SimMap'),
         multiValued=False,
     ),
-
-
+    
     atapi.ReferenceField(
         'dem',
         storage=atapi.AnnotationStorage(),
@@ -236,8 +234,7 @@ ProbmapSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
         allowed_types=('SimMap'),
         multiValued=False,
     ),
-
-
+    
     FileField(
         'probfile',
         storage=atapi.AnnotationStorage(),
