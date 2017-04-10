@@ -152,7 +152,7 @@ ProbmapSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
     ),
     
     atapi.IntegerField(
-        'popcenters_w',
+        'pop_w',
         storage=atapi.AnnotationStorage(),
         widget=atapi.IntegerWidget(
             label=_(u"Population Weight"),
@@ -178,7 +178,7 @@ ProbmapSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
     ),
     
     atapi.IntegerField(
-        'empcenters_w',
+        'emp_w',
         storage=atapi.AnnotationStorage(),
         widget=atapi.IntegerWidget(
             label=_(u"Employment Weight"),
@@ -285,11 +285,11 @@ class Probmap(base.ATCTContent):
 
     empcenters = atapi.ATReferenceFieldProperty('empcenters')
     
-    empcenters_w = atapi.ATReferenceFieldProperty('empcenters_w')
+    emp_w = atapi.ATReferenceFieldProperty('emp_w')
 
     popcenters = atapi.ATReferenceFieldProperty('popcenters')
     
-    popcenters_w = atapi.ATReferenceFieldProperty('popcenters_w')
+    pop_w = atapi.ATReferenceFieldProperty('pop_w')
 
     dem = atapi.ATReferenceFieldProperty('dem')
 
@@ -314,8 +314,8 @@ class Probmap(base.ATCTContent):
         SubElement(tree, 'title').text = self.title
         SubElement(tree, 'year').text = str(self.year)
         SubElement(tree, 'trans_w').text = str(self.trans_w)
-        SubElement(tree, 'popcenters_w').text = str(self.popcenters_w)
-        SubElement(tree, 'empcenters_w').text = str(self.empcenters_w)
+        SubElement(tree, 'pop_w').text = str(self.pop_w)
+        SubElement(tree, 'emp_w').text = str(self.emp_w)
         SubElement(tree, 'url').text = self.absolute_url()
         SubElement(tree, 'download').text = self.absolute_url() + \
             '/at_download/probfile'
