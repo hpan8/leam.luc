@@ -282,17 +282,17 @@ class Probmap(base.ATCTContent):
 
     trans_w = atapi.ATReferenceFieldProperty('trans_w')
     
-    popcenters_w = atapi.ATReferenceFieldProperty('popcenters_w')
-
-    empcenters_w = atapi.ATReferenceFieldProperty('empcenters_w')
-
     drivers = atapi.ATReferenceFieldProperty('drivers')
 
     nogrowth = atapi.ATReferenceFieldProperty('nogrowth')
 
     empcenters = atapi.ATReferenceFieldProperty('empcenters')
+    
+    empcenters_w = atapi.ATReferenceFieldProperty('empcenters_w')
 
     popcenters = atapi.ATReferenceFieldProperty('popcenters')
+    
+    popcenters_w = atapi.ATReferenceFieldProperty('popcenters_w')
 
     dem = atapi.ATReferenceFieldProperty('dem')
 
