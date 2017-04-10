@@ -70,7 +70,7 @@ class IProbmap(Interface):
         schema=Interface, # specify the interface(s) of the addable types here
     )
     
-    empcenters_w = schema.Int(
+    emp_w = schema.Int(
         title=_(u"Employment Weight"),
         required=False,
         description=_(u"Weight of Employment Centers"),
@@ -83,7 +83,7 @@ class IProbmap(Interface):
         schema=Interface, # specify the interface(s) of the addable types here
     )
     
-    popcenters_w = schema.Int(
+    pop_w = schema.Int(
         title=_(u"Population Weight"),
         required=False,
         description=_(u"Weight of Population Centers"),
