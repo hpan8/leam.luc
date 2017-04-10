@@ -150,7 +150,7 @@ ProbmapSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
         allowed_types=('SimMap'),
         multiValued=True,
     ),
-    
+    #
     atapi.IntegerField(
         'pop_w',
         storage=atapi.AnnotationStorage(),
