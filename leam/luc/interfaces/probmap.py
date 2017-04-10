@@ -5,7 +5,6 @@ from zope import schema
 from leam.luc import lucMessageFactory as _
 
 
-
 class IProbmap(Interface):
     """a Land Use Change probability map"""
 
